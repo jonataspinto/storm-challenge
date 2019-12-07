@@ -52,4 +52,18 @@ export const ButtonElement = styled.button`
             } 
         `
     }
+
+    ${props=> 
+        props.close &&
+        css`
+            background-color: ${colors.default};
+            color: #323232;
+            font-size: 35px;
+            width: 80px;
+            padding: 5px;
+            &:active{
+                background-color: ${darken (0.05, colors.default)}
+            } 
+        `
+    }
 `

@@ -20,7 +20,9 @@ export default class Home extends Component {
             <HomeContainer>
                 <p>Hello</p>
                 <Button handleAction={this.toggleModal} value={'modal Win!'}/>
-                <Button model="primary" handleAction={this.toggleModal} value={'modal Win!'}/>
+                <Button model="primary" handleAction={this.toggleModal} value='modal Win!'/>
+                <Button model="danger" handleAction={this.toggleModal} value='modal Win!'/>
+                <Button close value='X'/>
                 <Modal showModal={showModal}></Modal>
             </HomeContainer>
         )

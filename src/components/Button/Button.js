@@ -3,7 +3,7 @@ import { ButtonElement } from './ButtonStyled';
 
 const Button=(props)=> {
   return (
-    <ButtonElement model={props.model} onClick={props.handleAction}>
+    <ButtonElement model={props.model} onClick={props.handleAction} close={props.close}>
         {props.value}
     </ButtonElement >
   )
