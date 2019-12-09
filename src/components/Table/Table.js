@@ -18,7 +18,6 @@ import Tooltip from '@material-ui/core/Tooltip';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import DeleteIcon from '@material-ui/icons/Delete';
-import FilterListIcon from '@material-ui/icons/FilterList';
 
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
@@ -145,6 +144,8 @@ const useToolbarStyles = makeStyles(theme => ({
   },
 }));
 
+
+// topo da tabela
 const EnhancedTableToolbar = props => {
   const classes = useToolbarStyles();
   const { numSelected } = props;
@@ -155,26 +156,16 @@ const EnhancedTableToolbar = props => {
         [classes.highlight]: numSelected > 0,
       })}
     >
-      {numSelected > 0 ? (
+      {numSelected > 0 && (
         <Typography className={classes.title} color="inherit" variant="subtitle1">
           {numSelected} selected
         </Typography>
-      ) : (
-        <Typography className={classes.title} variant="h6" id="tableTitle">
-          Nutrition
-        </Typography>
       )}
 
-      {numSelected > 0 ? (
+      {numSelected > 0 && (
         <Tooltip title="Delete">
           <IconButton aria-label="delete">
             <DeleteIcon />
-          </IconButton>
-        </Tooltip>
-      ) : (
-        <Tooltip title="Filter list">
-          <IconButton aria-label="filter list">
-            <FilterListIcon />
           </IconButton>
         </Tooltip>
       )}
