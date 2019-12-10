@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/storm-challenge/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/storm-challenge/static/js/main.41b44ae4.chunk.js",
+    "main.js.map": "/storm-challenge/static/js/main.41b44ae4.chunk.js.map",
+    "runtime-main.js": "/storm-challenge/static/js/runtime-main.4bd73b9d.js",
+    "runtime-main.js.map": "/storm-challenge/static/js/runtime-main.4bd73b9d.js.map",
+    "static/js/2.e5fa7441.chunk.js": "/storm-challenge/static/js/2.e5fa7441.chunk.js",
+    "static/js/2.e5fa7441.chunk.js.map": "/storm-challenge/static/js/2.e5fa7441.chunk.js.map",
+    "index.html": "/storm-challenge/index.html",
+    "precache-manifest.96122ce4dea1c77e2af8d0e426154cea.js": "/storm-challenge/precache-manifest.96122ce4dea1c77e2af8d0e426154cea.js",
+    "service-worker.js": "/storm-challenge/service-worker.js",
+    "static/css/main.5ecd60fb.chunk.css.map": "/storm-challenge/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.e5fa7441.chunk.js.LICENSE": "/storm-challenge/static/js/2.e5fa7441.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4bd73b9d.js",
+    "static/js/2.e5fa7441.chunk.js",
+    "static/css/main.5ecd60fb.chunk.css",
+    "static/js/main.41b44ae4.chunk.js"
+  ]
+}
