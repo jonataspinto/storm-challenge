@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import {HomeContainer} from './HomeStyled'
 // import {users} from '../../Shared/data'
-// import Table from '../../components/Table/Table'
+import Table from '../../components/Table/Table'
 import { makeStyles, withStyles, createMuiTheme} from '@material-ui/core/styles';
 import Header from  '../../components/Header/Header'
 import Button from  '../../components/Button/ButtonElement'
@@ -89,7 +89,7 @@ export default function Home () {
             </Header>
             
         
-            {/* <Table/> */}
+            <Table/>
             
         </HomeContainer>
     )

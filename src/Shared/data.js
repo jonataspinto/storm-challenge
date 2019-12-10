@@ -6,7 +6,7 @@ export const users=[
         alterDate: new Date(2019,5,30),
         rules: '01',
         status: 'active', 
-        actions: null
+        actions: 'ellipsis-h'
     },
     {
         name: 'cchang',
@@ -14,8 +14,8 @@ export const users=[
         includDate: new Date(2019,5,28),
         alterDate: new Date(2019,5,30),
         rules: '01',
-        status: 'active', 
-        actions: null
+        status: 'active',
+        actions: 'ellipsis-h'
     },
     {
         name: 'tmarcal',
@@ -24,7 +24,7 @@ export const users=[
         alterDate: new Date(2019,5,30),
         rules: '01',
         status: 'active', 
-        actions: null
+        actions: 'ellipsis-h'
     },
     {
         name: 'ecgiann',
@@ -33,7 +33,7 @@ export const users=[
         alterDate: new Date(2019,5,30),
         rules: '01',
         status: 'active', 
-        actions: null
+        actions: 'ellipsis-h'
     },
     {
         name: 'yfernand',
@@ -42,7 +42,7 @@ export const users=[
         alterDate: new Date(2019,5,30),
         rules: '02',
         status: 'active', 
-        actions: null
+        actions: 'ellipsis-h'
     },
     {
         name: 'placerda',
@@ -51,6 +51,6 @@ export const users=[
         alterDate: new Date(2019,5,30),
         rules: '02',
         status: 'active', 
-        actions: null
+        actions: 'ellipsis-h'
     },
 ]
