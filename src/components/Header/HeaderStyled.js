@@ -10,8 +10,14 @@ export const HeaderContainer =  styled(FlexContainer)`
 export const DrawerContainer = styled(FlexContainer)`
     flex-direction: column;
     background-color: #CCC;
-    width: 450px;
-    height: 100vh;
+    width: 60vw;
+    height: 100%;
+        @media screen and(max-width: 768px){
+        /* width: 100px */
+        /* width: 60vw !important; */
+
+    }
+        
 `
 export const HeaderDrawer = styled(FlexContainer)`
     justify-content: space-between;
