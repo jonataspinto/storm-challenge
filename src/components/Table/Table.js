@@ -10,9 +10,15 @@ import {users} from '../../Shared/data'
 import { LANG } from '../../Shared/pt'
 import Icon from '@material-ui/core/Icon';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles( theme=>({
   root: {
-    width: '100%',
+    width: '95%',
+    margin: '15px 0 0 0',
+    [theme.breakpoints.down('sm')]: {
+      width: "100%",
+      margin: '0',
+
+    }
   },
   paper: {
     width: '100%',
@@ -21,14 +27,34 @@ const useStyles = makeStyles({
   table: {
     minWidth: 650,
   },
-  active: {
+  tableHead:{
+
+  },
+  tableBody:{
+    'tr:nth-child(2)':{
+
+    }
+  },
+  tableRow:{
+    backgroundColor: '#d4d4d4',
+    '&:hover': {
+      backgroundColor: '#99f',
+    },
+  },
+  tableRowLight:{
+    backgroundColor: '#f0f0f0',
+    '&:hover': {
+      backgroundColor: '#99f',
+    },
+  },
+  status: {
     color: 'Green',
-    textTransform: 'upperCase'
+    textTransform: 'upperCase',
   },
   text:{
     textTransform: 'upperCase'
   }
-});
+}));
 
 function createData(name,  email, includDate, alterDate, rules, status, actions) {
   return { name, email, includDate, alterDate, rules, status, actions };
@@ -57,7 +83,7 @@ export default function DenseTable() {
           </TableHead>
           <TableBody>
             {rows.map((row, index)=> (
-              <TableRow key={index}>
+              <TableRow key={index} className={ `${index % 2 ? classes.tableRow : classes.tableRowLight}`}>
                 <TableCell 
                   component="th" 
                   scope="row" 
@@ -67,7 +93,7 @@ export default function DenseTable() {
                 <TableCell align="center">{formateDate(row.includDate)}</TableCell>
                 <TableCell align="center" >{formateDate(row.includDate)}</TableCell>
                 <TableCell align="center">{row.rules}</TableCell>
-                <TableCell align="center" className={classes.active}>{row.status}</TableCell>
+                <TableCell align="center" className={classes.status}>{row.status}</TableCell>
                 <TableCell align="center"><Icon className={`fa fa-${row.actions}`}/></TableCell>
               </TableRow>
             ))}

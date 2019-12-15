@@ -19,13 +19,18 @@ export default function Header(props) {
     },
     theme:{
       color: 'red'
+    },
+    isDrawer:{
+    [theme.breakpoints.down('sm')]: {
+      width: "100%"
+    }
     }
   }));
 
   const classes = useStyles();
 
   const sideList = side => (
-    <DrawerContainer>
+    <DrawerContainer className={classes.isDrawer}>
       <HeaderDrawer>
         <ListItem >
           <ListItemIcon>
@@ -40,7 +45,7 @@ export default function Header(props) {
           icon="times"
           class = {classes.buttonUniIcon}
           handle = { props.handleClick()}
-          hide='true'
+          // hide='true'
         />
       </HeaderDrawer>
 
