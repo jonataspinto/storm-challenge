@@ -12,6 +12,7 @@ export default function ButtonElement(props) {
         startIcon={props.value && <Icon className={`fas fa-${props.icon}`}/>}
         onClick={props.handle}
         disabled={props.disabled}
+        hide={props.hide}
         >   
         {props.value || <Icon className={`fas fa-${props.icon}`}/>}
         </ButtonContainer>

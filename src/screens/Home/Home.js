@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import {HomeContainer} from './HomeStyled'
 // import {users} from '../../Shared/data'
 import Table from '../../components/Table/Table'
-import { makeStyles, withStyles, createMuiTheme} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Header from  '../../components/Header/Header'
 import Button from  '../../components/Button/ButtonElement'
 import Box from '@material-ui/core/Box';
@@ -53,6 +53,7 @@ export default function Home () {
                             icon="shield-alt"
                             class = {useStyles().buttonUniIcon}
                             handle = {()=> alert('I Love you')}
+                            hide = {'true'}
                         />
 
                         <Button
@@ -84,6 +85,7 @@ export default function Home () {
                         icon="user"
                         class = {useStyles().button}
                         handle = {()=> alert('include user')}
+                        hide={'true'}
                     />
                 </Box>
             </Header>

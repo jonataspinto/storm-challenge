@@ -1,4 +1,4 @@
-import React,{ useState} from 'react';
+import React from 'react';
 import { HeaderContainer, DrawerContainer, HeaderDrawer, ListDrawer } from './HeaderStyled.js'
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -19,17 +19,22 @@ export default function Header(props) {
     },
     theme:{
       color: 'red'
+    },
+    isDrawer:{
+    [theme.breakpoints.down('sm')]: {
+      width: "100%"
+    }
     }
   }));
 
   const classes = useStyles();
 
   const sideList = side => (
-    <DrawerContainer>
+    <DrawerContainer className={classes.isDrawer}>
       <HeaderDrawer>
         <ListItem >
           <ListItemIcon>
-            <Icon className={`fa fa-sliders-h`}/>
+            <Icon className={`fa fa-sliders-h` }/>
           </ListItemIcon>
           <ListItemText primary={LANG.filters} />
         </ListItem>
@@ -40,6 +45,7 @@ export default function Header(props) {
           icon="times"
           class = {classes.buttonUniIcon}
           handle = { props.handleClick()}
+          // hide='true'
         />
       </HeaderDrawer>
 
@@ -50,19 +56,19 @@ export default function Header(props) {
 
         <List>
           {LANG.drawerFilter.map((text, index) => (
-            <>
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {
-                index === 0 || index === 1 ? 
-                <Icon className={`fas fa-calendar-alt`}/> : 
-                <Icon className={`fas fa-circle`}/> 
-                }
-              </ListItemIcon>
-              <ListItemText className={classes.theme} primary={text}/>
-            </ListItem>          
-            <Divider />
-            </>
+            <div key={index}>
+              <ListItem button >
+                <ListItemIcon>
+                  {
+                  index === 0 || index === 1 ? 
+                  <Icon className={`fas fa-calendar-alt`}/> : 
+                  <Icon className={`fas fa-circle`}/> 
+                  }
+                </ListItemIcon>
+                <ListItemText className={classes.theme} primary={text}/>
+              </ListItem>          
+              <Divider />
+            </div>
           ))}
         </List>
       </ListDrawer>
@@ -73,7 +79,7 @@ export default function Header(props) {
         value={LANG.apply}
         class = {classes.buttonUniIcon}
         // disabled='disabled'
-        // handle = { props.handleClick()}
+        handle = { props.handleClick()}
       />
     </DrawerContainer>
   );
@@ -83,9 +89,8 @@ export default function Header(props) {
       {props.children}
       {props.side &&
       <Drawer anchor="right" open={props.side}>
-      {sideList('right')}
+      {sideList(props.side)}
       </Drawer>}
     </HeaderContainer>
-
   );
 }
