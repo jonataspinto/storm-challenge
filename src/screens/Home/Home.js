@@ -12,6 +12,8 @@ import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import Paper from '@material-ui/core/Paper';
 import IconButton from '@material-ui/core/IconButton';
+import Footer from '../../components/Footer';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const useStyles = makeStyles(theme => ({
     button: {
@@ -48,12 +50,13 @@ const useStyles = makeStyles(theme => ({
     input: {
         flex: 1,
         padding: theme.spacing(1),
-
     },
 }))
 
 export default function Home () {
     const classes = useStyles();
+    const mobile = useMediaQuery('(min-width:778px)')
+    const tablet = useMediaQuery('(min-width: 1036px)')
 
     const [state, setState] = useState({
         right: false,
@@ -65,8 +68,7 @@ export default function Home () {
         }    
         setState({ ...state, [side]: !state.right })
         console.log(state)        
-    };
-      
+    };      
 
     return (
         <HomeContainer>
@@ -78,7 +80,6 @@ export default function Home () {
                         colors={{a:'#fe6b8b', b:'#ff8e53'}}
                         icon="chart-bar"
                         class = {classes.buttonUniIcon}
-                        handle = {()=> alert('gradient')}
                         hide = {'true'}
                     />
 
@@ -99,7 +100,6 @@ export default function Home () {
                             colors={{a:'#fe6b8b', b:'#ff8e53'}}
                             icon="user"
                             class = {classes.buttonUniIcon}
-                            handle = {()=> alert('gradient')}
                             hide = {'true'}
                         />
                     </ButtonGroup>
@@ -126,35 +126,34 @@ export default function Home () {
                         class = {classes.button}
                         handle = {toggleDrawer('right')}
                     />
-                    <Button
+                    {mobile && <Button
                         value={LANG.includeUser} 
                         variant="contained" 
                         color="secondary"
                         icon="user"
                         class = {classes.button}
                         handle = {()=> alert('include user')}
-                        hide={'true'}
-                    />
-                    <Divider className={classes.divider} orientation="vertical" />
-                    <>
-                        <Button
-                            icon="home"
-                            hide={'true'}
-                        />
-                        <Button
-                            icon="cog"
-                            hide={'true'}
-                        />
-                        <Button
-                            icon="power-off"
-                            hide={'true'}
-                        />
-                    </>
+                    />}
+                    {tablet && <> 
+                        <Divider className={classes.divider} orientation="vertical" />
+                        <div>
+                            <Button
+                                icon="home"
+                            />
+                            <Button
+                                icon="cog"
+                            />
+                            <Button
+                                icon="power-off"
+                            />
+                        </div>
+                    </>}
                 </Box>
             </Header>            
         
             <Table/>
             
+            <Footer/>
         </HomeContainer>
     )
 }

@@ -17,7 +17,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 const useStyles = makeStyles( theme=>({
   root: {
     width: '95%',
-    margin: '15px 0px 0 0px',
+    margin: '15px 0px 0px 0px',
     textAlign: 'center',
     [theme.breakpoints.down('sm')]: {
       width: "100%",
@@ -60,8 +60,8 @@ const useStyles = makeStyles( theme=>({
     padding: theme.spacing(2),
     color: 'rgba(0, 0, 0, 0.26)',
     '&:hover':{
-      margin: theme.spacing(1),
-      padding: theme.spacing(0),
+      // margin: theme.spacing(1),
+      // padding: theme.spacing(0),
       backgroundColor: 'rgba(0, 0, 0, 0.56)',
       color: 'rgba(0, 0, 0, 1)',
     }
