@@ -7,5 +7,4 @@ export const HomeContainer =  styled(FlexContainer)`
     background-color: #e7e7e7;
     width: 100vw;
     height: 100vh
-
 `
