@@ -9,16 +9,20 @@ import Paper from '@material-ui/core/Paper';
 import {users} from '../../Shared/data'
 import { LANG } from '../../Shared/pt'
 import Icon from '@material-ui/core/Icon';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Button from  '../../components/Button/ButtonElement'
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const useStyles = makeStyles( theme=>({
   root: {
     width: '95%',
-    margin: '15px 0 0 0',
+    margin: '15px 0px 0 0px',
+    textAlign: 'center',
     [theme.breakpoints.down('sm')]: {
       width: "100%",
       margin: '0',
-
-    }
+    },    
   },
   paper: {
     width: '100%',
@@ -27,25 +31,16 @@ const useStyles = makeStyles( theme=>({
   table: {
     minWidth: 650,
   },
-  tableHead:{
-
-  },
   tableBody:{
-    'tr:nth-child(2)':{
-
-    }
+    '&:hover': {
+      backgroundColor: 'white',
+    },
   },
   tableRow:{
-    backgroundColor: '#d4d4d4',
-    '&:hover': {
-      backgroundColor: '#99f',
-    },
+    backgroundColor: '#d4d4d4',    
   },
   tableRowLight:{
     backgroundColor: '#f0f0f0',
-    '&:hover': {
-      backgroundColor: '#99f',
-    },
   },
   status: {
     color: 'Green',
@@ -53,11 +48,58 @@ const useStyles = makeStyles( theme=>({
   },
   text:{
     textTransform: 'upperCase'
+  },
+  onCheck:{
+    backgroundColor: 'transparent',
+    borderRadius: 0,
+    padding: 0,
+    margin: 0
+  },
+  button: {
+    margin: theme.spacing(1),
+    padding: theme.spacing(2),
+    color: 'rgba(0, 0, 0, 0.26)',
+    '&:hover':{
+      margin: theme.spacing(1),
+      padding: theme.spacing(0),
+      backgroundColor: 'rgba(0, 0, 0, 0.56)',
+      color: 'rgba(0, 0, 0, 1)',
+    }
+  },
+  actualPage: {
+    margin: theme.spacing(1),
+    padding: theme.spacing(2),
+    backgroundColor: 'rgb(253,89,165)',
+    borderRadius: '4px',
+    color: 'white',
+    [theme.breakpoints.down('sm')]: {
+      margin: theme.spacing(0),
+      padding: theme.spacing(1),
+    },
+  },
+  advancedFunctions:{
+    backgroundColor: 'transparent',
+    color: 'transparent',
+    margin: 0,
+    width: '100%',
+    '&:hover': {
+      color: 'black',
+    },
+  },
+  advancedIcon:{
+    margin: theme.spacing(1),
+    fontSize: '15px'
+  },
+  extend:{
+    '&:hover': {
+      backgroundColor: 'white',
+      color: 'transparent',
+    },
   }
 }));
 
-function createData(name,  email, includDate, alterDate, rules, status, actions) {
-  return { name, email, includDate, alterDate, rules, status, actions };
+function createData(name,  email, includDate, alterDate, rules, status, advanced, actions) {
+  return { name, email, includDate, alterDate, rules, status, advanced, actions };
 }
 
 const formateDate = (date) =>{
@@ -65,11 +107,58 @@ const formateDate = (date) =>{
 }
 
 const rows = users.map((user, index)=>{
-  return createData(user.name, user.email, user.includDate, user.alterDate, user.rules, user.status, user.actions)
+  return createData(
+    user.name, 
+    user.email, 
+    user.includDate, 
+    user.alterDate, 
+    user.rules, 
+    user.status,
+    [
+      'trash', 
+      'caret-square-down',
+      'shield-alt',
+      'pen'
+    ], 
+    user.actions)
 })
 
 export default function DenseTable() {
   const classes = useStyles();
+  const matches = useMediaQuery('(min-width:600px)')
+  
+  const Navigation =() => (
+    <>
+      <Button
+        value={matches ? `Primeiro` : '1'}
+        color="secondary"
+        class = {classes.button}
+      />
+      <Button
+        value={matches && 'Anterior'}
+        color="secondary"
+        class = {classes.button}
+        icon = {!matches && 'arrow-left'}
+      />
+
+        <span className={classes.actualPage}> 1 </span>
+
+      <Button
+        value={matches && 'Próximo'}
+        color="secondary"
+        disabled
+        class = {classes.button}
+        icon = {!matches && 'arrow-right'}
+      />
+      <Button
+        value={matches ? 'Último' : '1'}
+        disabled
+        color="secondary"
+        class = {classes.button}
+      />
+    </>
+  )
+
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
@@ -83,7 +172,12 @@ export default function DenseTable() {
           </TableHead>
           <TableBody>
             {rows.map((row, index)=> (
-              <TableRow key={index} className={ `${index % 2 ? classes.tableRow : classes.tableRowLight}`}>
+              <TableRow key={index} className={ `${index % 2 ? classes.tableRow : classes.tableRowLight}  ${classes.tableBody}`}>
+                <TableCell>
+                  <FormControlLabel 
+                    control={<Checkbox value="checkedC" className={classes.onCheck}/>}
+                  />
+                  </TableCell>
                 <TableCell 
                   component="th" 
                   scope="row" 
@@ -94,12 +188,19 @@ export default function DenseTable() {
                 <TableCell align="center" >{formateDate(row.includDate)}</TableCell>
                 <TableCell align="center">{row.rules}</TableCell>
                 <TableCell align="center" className={classes.status}>{row.status}</TableCell>
+                <TableCell align="center" nowrap='noWrap' className={classes.advancedFunctions}>
+                  {row.advanced.map((icon, index)=>{
+                    return <Icon key={index} className={`fa fa-${icon} ${classes.advancedIcon}`}/>
+                  })}
+                </TableCell>
                 <TableCell align="center"><Icon className={`fa fa-${row.actions}`}/></TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </Paper>
+
+      {Navigation()}
     </div>
   );
 }

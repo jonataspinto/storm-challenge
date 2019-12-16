@@ -10,12 +10,14 @@ export const LANG = {
         'ATIVOS E INATIVOS'
     ],
     table: [
+        '',
         'USUÁRIO',
         'EMAIL',
         'DATA DE INCLUSÃO',
         'DATA DE ALTERAÇÃO',
         'REGRAS',
         'STATUS',
+        '',
         'AÇÕES'
     ],
 

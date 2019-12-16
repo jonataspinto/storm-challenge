@@ -5,7 +5,7 @@ export const users=[
         includDate: new Date(2019,5,28),
         alterDate: new Date(2019,5,30),
         rules: '01',
-        status: 'active', 
+        status: 'ativo', 
         actions: 'ellipsis-h'
     },
     {
@@ -14,7 +14,7 @@ export const users=[
         includDate: new Date(2019,5,28),
         alterDate: new Date(2019,5,30),
         rules: '01',
-        status: 'active',
+        status: 'ativo',
         actions: 'ellipsis-h'
     },
     {
@@ -23,7 +23,7 @@ export const users=[
         includDate: new Date(2019,5,28),
         alterDate: new Date(2019,5,30),
         rules: '01',
-        status: 'active', 
+        status: 'ativo', 
         actions: 'ellipsis-h'
     },
     {
@@ -32,7 +32,7 @@ export const users=[
         includDate: new Date(2019,5,28),
         alterDate: new Date(2019,5,30),
         rules: '01',
-        status: 'active', 
+        status: 'ativo', 
         actions: 'ellipsis-h'
     },
     {
@@ -41,7 +41,7 @@ export const users=[
         includDate: new Date(2019,5,28),
         alterDate: new Date(2019,5,30),
         rules: '02',
-        status: 'active', 
+        status: 'ativo', 
         actions: 'ellipsis-h'
     },
     {
@@ -50,7 +50,7 @@ export const users=[
         includDate: new Date(2019,5,28),
         alterDate: new Date(2019,5,30),
         rules: '02',
-        status: 'active', 
+        status: 'ativo', 
         actions: 'ellipsis-h'
     },
 ]
