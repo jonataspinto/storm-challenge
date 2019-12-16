@@ -9,7 +9,7 @@ export default function ButtonElement(props) {
         color={props.color}
         colors={props.colors}
         className={props.class}
-        startIcon={props.value && <Icon className={`fas fa-${props.icon}`}/>}
+        startIcon={props.icon && (props.value && <Icon className={`fas fa-${props.icon}`}/>)}
         onClick={props.handle}
         disabled={props.disabled}
         hide={props.hide}
