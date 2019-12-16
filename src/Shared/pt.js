@@ -1,12 +1,14 @@
 export const LANG = { 
     descFilter: "Utilize os filros abaixo para refinar os resultados de tabela, clique no botão APLICAR para salvar as alterações.",
     filters: "FILTROS",
+    apply:'Aplicar',
+    search:'Pesquisar',
+    includeUser:'INCLUIR USUÁRIO',
     drawerFilter: [
         'TODAS AS DATAS DE INCLUSÃO',
         'TODAS AS DATAS DE ALTERAÇÃO',
         'ATIVOS E INATIVOS'
     ],
-    apply:'Aplicar',
     table: [
         'USUÁRIO',
         'EMAIL',
@@ -15,6 +17,7 @@ export const LANG = {
         'REGRAS',
         'STATUS',
         'AÇÕES'
-    ]
+    ],
+
     
 }
